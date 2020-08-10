@@ -15,7 +15,7 @@ from pyomo.environ import *
 import time
 
 st = time.time()
-
+#Change file path accordingly
 load_df = pd.read_csv('Downloads\99520\Commercial.csv', header=None)
 
 load_df.drop(load_df.columns[[0,2,3,4,5,6,7,8,9,10]], axis = 1, inplace = True)
@@ -52,6 +52,8 @@ model = ConcreteModel()
 
 model.discount = 0.07
 
+
+#Change battery specifications here
 osize = 1
 rated_energy = 11.6 * osize
 rem_energy = rated_energy * 0.8 #Energy remaining at the beginning of second-life use
@@ -60,7 +62,7 @@ model.degradation_limit = 0.2 * rated_energy
 model.om_cost = 27 / 365 #O&M Cost associated with per unit power usage per day # divided by 365 to change from per year to per day
 epr = 4 #Energy to Power Ratio
 
-model.eff = 0.95 #Change later when figured out
+model.eff = 0.95 
 calendar_deg = 0.01
 
 DBU = [] #stores daily benefits/revenue
@@ -73,7 +75,7 @@ Y_degrad = [] #stores yearly degradation
 Y_tp = [] #stores yearly throughput
 Y_OM_cost = []
 Y_Deg_cost = []
-om_cost = 27 #Cost per year per unit power
+om_cost = 27 #OM Cost per year per unit power
 
 
 LBU = [] #stores long-term or total benefits/revenue
