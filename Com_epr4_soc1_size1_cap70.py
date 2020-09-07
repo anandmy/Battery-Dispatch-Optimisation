@@ -55,7 +55,6 @@ rated_energy = 11.6 * osize
 rem_energy = rated_energy * 0.8 #Energy remaining at the beginning of second-life use
 model.max_energy = rem_energy #Initialize
 model.degradation_limit = 0.2 * rated_energy
-model.om_cost = 27 / 365 #O&M Cost associated with per unit power usage per day # divided by 365 to change from per year to per day. Value taken from EPRI Handbook for residential scale storage.
 epr = 4 #Energy to Power Ratio. Determines peak power wrt to SoH or energy capacity on any given day
 
 model.eff = 0.95 #One way charging/dischargin efficiency
@@ -71,7 +70,7 @@ Y_degrad = [] #stores yearly degradation
 Y_tp = [] #stores yearly throughput
 Y_OM_cost = []
 Y_Deg_cost = []
-om_cost = 27 #OM Cost per year per unit power
+om_cost = 27 #O&M Cost associated with per unit power usage per day # divided by 365 to change from per year to per day. Value taken from EPRI Handbook for residential scale storage.
 
 
 LB = [] #stores long-term or total benefits/revenue
